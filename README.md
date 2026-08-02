@@ -98,3 +98,6 @@ After completing the tutorial version, I plan to add:
 Ray
 
 B.Tech CSE Student | Learning Full-Stack Web Development
+---
+
+*"Never spend more time analyzing a problem than you spend acting on it.."*
