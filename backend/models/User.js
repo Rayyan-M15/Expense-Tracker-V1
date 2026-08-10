@@ -7,17 +7,16 @@ const UserSchema = new mongoose.Schema(
     fullName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    profileImageURL: { type: String, default: null },
+    profileImageUrl: { type: String, default: null },
   },
   { timestamps: true },
 );
 
 //hiding the password before saving
 
-UserSchema.pre("save", async function (next) {
+UserSchema.pre("save", async function () {
   if (!this.isModified("password")) return next();
-  this.password = await bcrypt.hash(this.pssword, 10);
-  next();
+  this.password = await bcrypt.hash(this.password, 10);
 });
 
 //compare password

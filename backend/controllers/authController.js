@@ -9,7 +9,7 @@ const generateToken = (id) => {
 
 //when user registers
 exports.registerUser = async (req, res) => {
-  const { fullName, email, password, profileImageURL } = req.body;
+  const { fullName, email, password, profileImageUrl } = req.body;
 
   //checking if there is any missing fiels left
 
@@ -38,7 +38,7 @@ exports.registerUser = async (req, res) => {
       user,
       token: generateToken(user._id),
     });
-  } catch {
+  } catch(err) {
     res
       .status(500)
       .json({ message: "Error registering user", error: err.message });
@@ -46,7 +46,43 @@ exports.registerUser = async (req, res) => {
 };
 
 //when user logs in
-exports.loginUser = async (req, res) => {};
+exports.loginUser = async (req, res) => {
+  const {email, password} = req.body;
+  if(!email || !password){
+    return req.status(400).json({message: "All fields are required"});
+  }
+
+  try{
+    const user = await User.findOne({email});
+    if(!user || !(await user.comparePassword(password))) {
+      return res.status(400).json({message: "Invalid credentials"});
+
+    }
+
+    res.status(200).json({
+      id: user._id,
+      user,
+      token: generateToken(user._id),
+    });
+  }catch(err){
+    res
+      .status(500)
+      .json({ message: "Error registering user", error: err.message });
+  }
+};
 
 //when user registers, and we get the info
-exports.getUserInfo = async (req, res) => {};
+exports.getUserInfo = async (req, res) => {
+  try{
+    const user = await User.findById(req.user.id).select("-password");
+    if(!user){
+      return res.status(404).json({message: "User not found"})
+    }
+    res.status(200).json(user);
+
+  }catch (err){
+    res
+      .status(500)
+      .json({ message: "Error registering user", error: err.message });
+  }
+};
