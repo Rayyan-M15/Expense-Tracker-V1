@@ -20,7 +20,7 @@ The goal of this project is to learn:
 
 ---
 
-## 🚧 Planned Features
+## 🚧 Planned Features — V1
 
 * [ ] User Registration & Login
 * [ ] JWT Authentication
@@ -80,16 +80,34 @@ Progress will be updated as I complete different sections of the project.
 
 ---
 
-## 🚀 Future Improvements
+# 🚀 V2 — Independent Improvements
 
-After completing the tutorial version, I plan to add:
+After completing the tutorial version, I plan to extend the project with features and engineering improvements that go beyond the original implementation.
 
-* Transaction Categories
-* Budget Tracking
-* Dark Mode
-* Edit Transactions
-* Monthly Reports
-* Better Analytics Dashboard
+### Core Functionality
+
+* [ ] Proper Transaction CRUD
+* [ ] Transaction Categories
+* [ ] Budget Management
+* [ ] Monthly Analytics
+* [ ] Search & Filtering
+* [ ] Pagination
+
+### Security & Backend Improvements
+
+* [ ] Better Authentication
+* [ ] Protected Routes
+* [ ] Proper Input Validation
+* [ ] Better Error Handling
+* [ ] Rate Limiting
+
+### Production & Engineering
+
+* [ ] Deploy Frontend & Backend
+* [ ] Add Automated Tests
+* [ ] Clean README & Documentation
+* [ ] Add Project Screenshots
+* [ ] Add Live Demo URL
 
 ---
 
@@ -98,6 +116,7 @@ After completing the tutorial version, I plan to add:
 Ray
 
 B.Tech CSE Student | Learning Full-Stack Web Development
+
 ---
 
-*"Never spend more time analyzing a problem than you spend acting on it.."*
+*"Never spend more time analyzing a problem than you spend acting on it."*
